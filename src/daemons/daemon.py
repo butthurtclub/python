@@ -10,6 +10,10 @@ redis_client = redis.StrictRedis(
 )
 
 class Daemon:
+    class Message:
+        RECIPIENTS = 0
+        MESSAGE = 1
+
     def __init__(self):
         self.id = random.randint(1787, 9756)
         self.name = f'daemon:{self.id}'
@@ -23,7 +27,16 @@ class Daemon:
             if not command:
                 sleep(1)
                 continue
-            print(command)
+            data = command.split(':')
+
+            recipients = data[self.Message.RECIPIENTS].split(',')
+
+            for recipient in recipients:
+                redis_client.set(
+                    f'client:{recipient}:message',
+                    data[self.Message.MESSAGE]
+                )
+
             redis_client.delete(self.action_key)
 
     def kill(self):

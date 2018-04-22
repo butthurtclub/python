@@ -1,6 +1,7 @@
 from invoke import task
 from .daemon import Daemon
 from .manager import Manager
+from .client import Client
 
 @task
 def run_daemon(ctx):
@@ -17,4 +18,13 @@ def run_manager(ctx):
         manager = Manager()
         manager.run()
     except KeyboardInterrupt:
+        exit()
+
+@task
+def connect_client(ctx):
+    try:
+        client = Client()
+        client.connect()
+    except KeyboardInterrupt:
+        client.disconnect()
         exit()
