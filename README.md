@@ -23,6 +23,7 @@ sudo make altinstall
 ### IDE
 Качаем, устанавливаем [PyCharm IDE](https://www.jetbrains.com/pycharm/) от JetBrains. Community Edition бесплатная.
 ## Reading
+### Python
 1. [Dive Into Python 3](http://www.diveintopython3.net/index.html) Читаем 1-16 главу, попутно повторяем все примеры.
 2. [PEP 8 -- Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/)
 3. [Python Data Model](https://docs.python.org/3.6/reference/datamodel.html) Разделы 3.1, 3.2, 3.3
@@ -41,7 +42,9 @@ sudo make altinstall
 15. [import. Часть 1](http://asvetlov.blogspot.com/2010/05/blog-post.html)
 16. [import. Часть 2](http://asvetlov.blogspot.com/2010/05/2.html)
 17. [Исключения в Python](https://docs.python.org/3.6/tutorial/errors.html)
-
+### Other
+1. [JSON](https://www.tutorialspoint.com/json/index.htm)
+2. [YAML](http://yaml.org/spec/1.2/spec.pdf)
 ## Coding
 ###### Подход 1:
 1. Заходим в [этот раздел форума](https://my.devclub.com/forum/index.php?showtopic=7450)
