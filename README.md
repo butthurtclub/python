@@ -64,7 +64,8 @@ sudo make altinstall
 3. Кода должен быть покрыт тестами на 100%.
 
 ###### Пример того, как должна быть выполнена и оформлена задача:
-`__author__ = 'caiman'
+```python
+__author__ = 'caiman'
 
 
 import json
