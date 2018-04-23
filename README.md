@@ -64,9 +64,16 @@ sudo make altinstall
 3. Кода должен быть покрыт тестами на 100%.
 
 ###### Пример того, как должна быть выполнена и оформлена задача:
-```python
+`__author__ = 'caiman'
+
+
 import json
 import unittest
+
+__all__ = (
+    'Field',
+)
+
 
 class Field:
     """
@@ -74,7 +81,6 @@ class Field:
     Supproted types: integer, floating, string.
 
     Usage:
-    >>> from example import Field
     >>> field = Field('integer', 10)
     >>> field.value
     10
@@ -91,7 +97,7 @@ class Field:
     >>> field.field_type
     'integer'
     """
-    
+
     class FieldType:
         """
         Field constants.
@@ -137,7 +143,7 @@ class Field:
         :type field_type: str
         :param value: Field value.
         :type value: int, float, str
-        :raises ValueError, TypeError: On unsupported value type or unsupported Field type
+        :raises ValueError, TypeError: On unsupported value or Field type.
         """
 
         if field_type not in self.FieldType.all_types:
@@ -185,7 +191,7 @@ class Field:
     def to_json(self):
         """
         JSON representation
-        
+
         :return: JSON string
         :rtype: str
         """
@@ -199,7 +205,7 @@ class Field:
 
         :param data: JSON string
         :type data: str
-        :raises TypeError, ValueError: On unsupported value type or unsupported Field type
+        :raises TypeError, ValueError: On unsupported value or Field type.
         :return: Field object
         :rtype: Field
         """
@@ -210,13 +216,19 @@ class Field:
 
 class TestField(unittest.TestCase):
     def test_supported_types(self):
-        self.assertEqual(Field.supported_types(), ['integer', 'floating', 'string'])
+        self.assertEqual(
+            Field.supported_types(),
+            ['integer', 'floating', 'string']
+        )
 
     def test_field_type(self):
         self.assertEqual(Field.FieldType.integer, 'integer')
         self.assertEqual(Field.FieldType.floating, 'floating')
         self.assertEqual(Field.FieldType.string, 'string')
-        self.assertEqual(Field.FieldType.all_types, ['integer', 'floating', 'string'])
+        self.assertEqual(
+            Field.FieldType.all_types,
+            ['integer', 'floating', 'string']
+        )
         self.assertEqual(
             Field.FieldType.validators,
             {'integer': int, 'floating': float, 'string': str}
@@ -256,7 +268,7 @@ class TestField(unittest.TestCase):
 
     def test_integer(self):
         x = Field('integer', 10)
-        
+
         self.assertEqual(x.field_type, 'integer')
         self.assertEqual(x.value, 10)
 
@@ -268,7 +280,7 @@ class TestField(unittest.TestCase):
 
     def test_floating(self):
         x = Field('floating', 1.5)
-        
+
         self.assertEqual(x.field_type, 'floating')
         self.assertEqual(x.value, 1.5)
 
